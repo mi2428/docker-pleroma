@@ -2,4 +2,8 @@
 cd /pleroma
 set -e
 
-mix compile
+if [ -z $@ ]; then
+    mix phx.server
+else
+    exec $@
+fi
